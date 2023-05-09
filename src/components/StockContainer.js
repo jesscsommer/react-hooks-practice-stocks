@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Stock from "./Stock";
 
-const StockContainer = () => {
+const StockContainer = ({ addToPortfolio }) => {
   const [stocks, setStocks] = useState([])
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const StockContainer = () => {
   return (
     <div>
       <h2>Stocks</h2>
-      {stocks.map(stock => <Stock {...stock} />)}
+      {stocks.map(stock => <Stock stock={stock} addToPortfolio={addToPortfolio} key={stock.id} />)}
     </div>
   );
 }
