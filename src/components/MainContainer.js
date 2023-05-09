@@ -8,16 +8,19 @@ const MainContainer = () => {
   const addToPortfolio = (newStock) => {
     setPortfolio(portfolio => [newStock, ...portfolio])
   }
+  const removeFromPortfolio = (soldStock) => {
+    setPortfolio(portfolio => portfolio.filter(portfolioItem => portfolioItem !== soldStock))
+  }
 
   return (
     <div>
       <SearchBar />
       <div className="row">
         <div className="col-8">
-          <StockContainer addToPortfolio={addToPortfolio} />
+          <StockContainer addToPortfolio={addToPortfolio} removeFromPortfolio={removeFromPortfolio} portfolio={portfolio} />
         </div>
         <div className="col-4">
-          <PortfolioContainer portfolio={portfolio} />
+          <PortfolioContainer portfolio={portfolio} addToPortfolio={addToPortfolio} removeFromPortfolio={removeFromPortfolio} />
         </div>
       </div>
     </div>

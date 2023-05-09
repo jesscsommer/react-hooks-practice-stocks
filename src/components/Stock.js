@@ -1,11 +1,20 @@
 import React from "react";
 
-const Stock = ({ stock, addToPortfolio }) => {
+const Stock = ({ stock, addToPortfolio, removeFromPortfolio, portfolio }) => {
   const {name, price} = stock
+
+  const handleClick = () => {
+    console.log(portfolio)
+    if (portfolio.includes(stock)) {
+      removeFromPortfolio(stock)
+    } else {
+      addToPortfolio(stock)
+    }
+  }
 
   return (
     <div>
-      <div className="card" onClick={() => addToPortfolio(stock)}>
+      <div className="card" onClick={handleClick}>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
           <p className="card-text">{price}</p>
