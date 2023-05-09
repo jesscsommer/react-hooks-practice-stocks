@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import StockContainer from "./StockContainer";
 import PortfolioContainer from "./PortfolioContainer";
 import SearchBar from "./SearchBar";
 
-function MainContainer() {
+const MainContainer = () => {
   return (
     <div>
       <SearchBar />
