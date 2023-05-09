@@ -1,6 +1,14 @@
 import React from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ changeSort, changeType }) => {
+  const handleChange = (e) => {
+    if (e.target.name === "sort") {
+      changeSort(e.target.value)
+    } else {
+      changeType(e.target.value)
+    }
+  }
+
   return (
     <div>
       <strong>Sort by:</strong>
@@ -10,7 +18,7 @@ const SearchBar = () => {
           value="Alphabetically"
           name="sort"
           checked={null}
-          onChange={null}
+          onChange={handleChange}
         />
         Alphabetically
       </label>
@@ -20,14 +28,14 @@ const SearchBar = () => {
           value="Price"
           name="sort"
           checked={null}
-          onChange={null}
+          onChange={handleChange}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleChange}>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>

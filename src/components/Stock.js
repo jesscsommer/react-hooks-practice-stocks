@@ -4,7 +4,6 @@ const Stock = ({ stock, addToPortfolio, removeFromPortfolio, portfolio }) => {
   const {name, price} = stock
 
   const handleClick = () => {
-    console.log(portfolio)
     if (portfolio.includes(stock)) {
       removeFromPortfolio(stock)
     } else {
